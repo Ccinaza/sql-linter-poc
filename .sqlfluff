@@ -2,20 +2,16 @@
 dialect = ansi
 max_line_length = 80
 
-[sqlfluff:rules:capitalisation.keywords]
-capitalisation_policy = lower
+[sqlfluff:rules:capitalisation]
+keywords = lower
 
-[sqlfluff:rules:layout.indent]
+[sqlfluff:rules:layout]
 tab_space_size = 2
-
-[sqlfluff:rules:layout.trailing_whitespace]
-allow_scalar = false
-
-[sqlfluff:rules:layout.comma_style]
+trailing_whitespace = disallow
 comma_style = trailing
 
-[sqlfluff:rules:aliasing.table]
-aliasing = explicit
+[sqlfluff:rules:aliasing]
+table = explicit
 
-[sqlfluff:rules:convention.implicit_string_concat]
-forbid_implicit_string_concatenation = true
+[sqlfluff:rules:convention]
+implicit_string_concat = true
