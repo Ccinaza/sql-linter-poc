@@ -1,0 +1,5 @@
+dialect: ansi
+rules:
+  - keyword-case: lower
+  - indent: 2
+line-length: 80

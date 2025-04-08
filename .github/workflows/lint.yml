@@ -1,0 +1,30 @@
+name: SQL Linting CI
+
+on: [push, pull_request]
+
+jobs:
+  sql-lint:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the code
+      - uses: actions/checkout@v3
+
+      # Setup Python for SQLFluff
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install SQLFluff
+        run: pip install sqlfluff
+      - name: Run SQLFluff Lint
+        run: sqlfluff lint test.sql
+
+      # Setup Rust for SQRuff
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: Install SQRuff
+        run: cargo install sqruff
+      - name: Run SQRuff Lint
+        run: sqruff lint test.sql
