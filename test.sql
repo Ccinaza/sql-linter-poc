@@ -1,7 +1,22 @@
-SELECT a,b,c FROM my_table t1 JOIN other_table    t2 ON t1.id=t2.id WHERE a=1 AND b>2 ORDER BY c DESC LIMIT 1; -- this is a long line with trailing space 
+-- this is a long line with trailing space 
+select
+    a,
+    b,
+    c
+from my_table as t1 inner join other_table as t2 on t1.id = t2.id
+where a = 1 and b > 2
+order by c desc limit 1;
 
-SELECT    a,b,c,d
-FROM my_table t1 JOIN
-other_table t2 ON t1.id=t2.id
-WHERE a=1 AND
-b>2 ORDER    BY c DESC LIMIT 1; -- trailing space here too   
+select
+    a,
+    b,
+    c,
+    d
+from my_table as t1 inner join
+    other_table as t2
+    on t1.id = t2.id
+where
+    a = 1
+    and b > 2
+order by c desc
+limit 1; -- trailing space here too   
