@@ -1,6 +1,6 @@
 # SQL Linting POC
 
-As part of improving code quality and consistency in our dbt models, we evaluated two popular SQL linting tools: sqruff and sqlfluff. Below is a summary of their comparison and our decision.
+As part of improving code quality and consistency in our dbt models, we evaluated two popular SQL linting tools: `sqruff` and `sqlfluff`. Below is a summary of their comparison and our decision.
 
 ## Comparison Criteria:
 
@@ -23,11 +23,11 @@ As part of improving code quality and consistency in our dbt models, we evaluate
 **Winner:** SQLFluff has more community support.
 
 #### Fixing Capability:
-**SQLFluff:**Fixes more (keywords, spacing, aliases)—mature feature.
+**SQLFluff:** Fixes more (keywords, spacing, aliases)—mature feature.
 **SQRuff:** Fixes less (keywords, indents)—still developing.
 
 #### Maturity:
-**SQLFluff:** Established 2020, large user base.
+**SQLFluff:** Established in 2020, large user base.
 **SQRuff:** Newer, less battle-tested.
 
 **Winner:** SQLFluff for stability; SQRuff for cutting-edge potential.
