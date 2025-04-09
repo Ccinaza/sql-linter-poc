@@ -1,33 +1,46 @@
-# SQL Linting POC
+# SQL Linting Proof of Concept (PoC)
 
-As part of improving code quality and consistency in our dbt models, we evaluated two popular SQL linting tools: `sqruff` and `sqlfluff`. Below is a summary of their comparison and our decision.
+## Overview
+This PoC evaluates **SQLFluff** (Python) and **SQRuff** (Rust) for linting and fixing SQL files in a CI pipeline using GitHub Actions. The goal: enforce SQL standards and automate fixes for a team of data engineers/analysts. Both tools were tested on multiple `.sql` files, comparing rule coverage, speed, and usability.
 
 ## Comparison Criteria:
 
 #### Rule Coverage:
-**SQLFluff:** More rules (50+), highly configurable (e.g., .sqlfluff has aliasing, comma style).
+**SQLFluff:** More rules (50+), highly configurable (e.g., `.sqlfluff` has aliasing, comma style).
 **SQRuff:** Fewer rules (growing, but basic now—keyword case, indent, line length).
 
-**Winner:** SQLFluff if the team leans towards strict, detailed standards.
+**Verdict:** Go with `SQLFluff` if your team needs granular control and strict enforcement.
 
-#### Speed:
-**SQLFluff:** Python—slower on large files (seconds vs. milliseconds).
-**SQRuff:** Rust—faster, optimized for performance.
+#### Install Time and Runtime:
+**SQLFluff:** 4s to install (Python), 1s per run. Python—slower on large files (seconds vs. milliseconds).
+**SQRuff:** 2m14s to install (Rust compile), <0s per run. Rust—faster, optimized for performance.
 
-**Winner:** SQRuff if speed is a concern.
+**Verdict:** `SQRuff` wins on performance once installed, but `SQLFluff` is faster to set up in CI.
 
 #### Ease of Use:
 **SQLFluff:** INI config, verbose errors—learning curve but familiar to Python users.
 **SQRuff:** YAML config, simpler output—newer, less documentation.
 
-**Winner:** SQLFluff has more community support.
+**Verdict:** `SQLFluff` is more mature and has broader community support and resources.
 
-#### Fixing Capability:
-**SQLFluff:** Fixes more (keywords, spacing, aliases)—mature feature.
-**SQRuff:** Fixes less (keywords, indents)—still developing.
+### Fixing Capability
+**SQLFluff**: Mature fixing capabilities, correcting keywords, spacing, aliases, and more.
+**SQRuff**: Limited to basic fixes (e.g., keywords, indentation)—still evolving.
+
+**Verdict**: `SQLFluff` for comprehensive auto-corrections.
 
 #### Maturity:
-**SQLFluff:** Established in 2020, large user base.
-**SQRuff:** Newer, less battle-tested.
+**SQLFluff**: Established since 2020, widely adopted with a strong user base.
+**SQRuff**: A newer entrant, less proven in production environments.
 
-**Winner:** SQLFluff for stability; SQRuff for cutting-edge potential.
+**Verdict**: `SQLFluff` is more battle-tested and reliable for production workflows.
+
+### Recommendation
+I recommend adopting `SQLFluff` as the primary SQL linter for the following reasons:
+
+- Comprehensive rule set reduces manual reviews and enforces team-wide standards
+- Fast install and acceptable runtime for CI/CD environments
+- Mature auto-fix support improves dev productivity
+- Strong community and documentation for ongoing support
+
+I'll keep an eye on SQRuff as it evolves—it may become a strong contender in the future, especially for performance-focused workflows.

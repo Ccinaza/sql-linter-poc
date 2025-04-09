@@ -19,24 +19,3 @@ require = qualified
 
 [sqlfluff:rules:layout.select_targets]
 select_clause_trailing_comma = require
-
-; [sqlfluff]
-; dialect = ansi
-; max_line_length = 80
-
-; [sqlfluff:rules:capitalisation]
-; keywords = lower
-
-; [sqlfluff:rules:layout]
-; tab_space_size = 2
-; trailing_whitespace = disallow
-; comma_style = trailing
-; max_line_length = 80  # Already set globally, but can reinforce here
-; select_clause_trailing_comma = require
-
-; [sqlfluff:rules:aliasing]
-; table = explicit
-
-; [sqlfluff:rules:convention]
-; implicit_string_concat = disallow
-
