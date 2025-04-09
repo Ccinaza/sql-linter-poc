@@ -1,4 +1,4 @@
-# SQL Linting in Our dbt Project
+# SQL Linting POC
 
 As part of improving code quality and consistency in our dbt models, we evaluated two popular SQL linting tools: sqruff and sqlfluff. Below is a summary of their comparison and our decision.
 
@@ -17,7 +17,7 @@ As part of improving code quality and consistency in our dbt models, we evaluate
 **Winner:** SQRuff if speed is a concern.
 
 #### Ease of Use:
-**SQLFluff:**INI config, verbose errors—learning curve but familiar to Python users.
+**SQLFluff:** INI config, verbose errors—learning curve but familiar to Python users.
 **SQRuff:** YAML config, simpler output—newer, less documentation.
 
 **Winner:** SQLFluff has more community support.
